@@ -12,7 +12,7 @@ using namespace std;
 #define repi(i, b, a) for (ll i = b - 1; i >= a; --i)
 #define all(a) (a).begin(), (a).end()
 int maxSubArray(int A[], int n1);
-void solve();
+int solve(int x);
 long long gcd(long long int a, long long int b);
 long long lcm(int a, int b);
 const int N = 200001;
