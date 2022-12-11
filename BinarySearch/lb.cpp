@@ -60,6 +60,7 @@ ll lcm(ll a, ll b) {return ((a * b) / (gcd(a, b)));}
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 int findFloor(vector<long long> nums, long long n, long long target){
         int ans =-1;
+        int ans =-1;
         if(nums[0]>=target) return -1;
         if(nums.size()==1 && nums[0]<target) return 0;
         int l=0;
@@ -67,17 +68,17 @@ int findFloor(vector<long long> nums, long long n, long long target){
         int mid = (l+nums.size())/2;
         while(l<=h)
         {
-            if(nums[mid]>=target)
+            mid = (l+h)/2;
+            if(nums[mid]>target)
             {
                 h = mid-1;
             }else
             {
+                
+                ans = mid;
                 l = mid+1;
             }
-            mid = (l+h)/2;
-            ans = mid;
         }
-        cout<<endl;
         return ans;
         
     }
