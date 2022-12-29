@@ -58,6 +58,54 @@ ll gcd(ll a, ll b) {if (a == 0) return b; return gcd(b % a, a);}
 ll lcm(ll a, ll b) {return ((a * b) / (gcd(a, b)));}
 
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+vector<int> b(10);
+
+void sort(vector<int> &a, int l, int mid, int r)
+{
+
+    int i = l;
+    int j = mid;
+    int tmp = 0;
+    while (i<mid && j<r)
+    {
+        if(a[i]<a[j])
+        {
+            b[tmp] = a[i];
+            i++; tmp++;
+        }else{
+            b[tmp] = a[j];
+            j++; tmp++;
+        }
+    }
+    
+    if(i<mid)
+    {
+        while (i<mid)
+        {
+            b[tmp] = a[i];
+            i++; tmp++;
+        }
+    }else{
+        while (j<r)
+        {
+            b[tmp] = a[j];
+            j++; tmp++;
+        }
+    }
+
+
+}
+
+void merge(vector<int> &a, int l, int r)
+{
+    if (l<r)
+    {
+        int mid = (l+r)/2;
+        merge(a, l, mid);
+        merge(a, mid+1, r);
+        sort(a, l, mid, r);
+    }
+}
 
 int main() {
 
@@ -68,23 +116,10 @@ int main() {
 #endif
 
     fastio();
-    vector <int> nums = {0,1,1,2,2,1,1,0};
-
-    int l = 0;
-        int r = nums.size()-1;
-        int mid = 0;
-        while(mid<=r)
-        {
-            if(nums[mid]==1) mid++;
-            else if(nums[mid]==0)
-            {
-                swap(nums[l], nums[mid]);
-                l++; mid++;
-            }else{
-                swap(nums[r], nums[mid]);
-                r--; 
-            }
-        }
+    vi a = {1, 4, 32, 8, 78, 32};
+    merge(a, 0, a.size());
+    debug(b);
+    
 
     return 0;
 }

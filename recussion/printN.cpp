@@ -31,8 +31,8 @@ void solve(int x)
     {
         return;
     }
-    cout<<x<<" ";
     solve(x-1);
+    cout<<x<<" ";
 }
 int dig(int x)
 {

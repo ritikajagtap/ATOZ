@@ -22,7 +22,7 @@ const int N = 200001;
 
 int main()
 {
-    int x = 15;
+    int x = 5;
     cout<<solve(x);
 }
 int solve(int x)
@@ -31,7 +31,7 @@ int solve(int x)
     {
         return x;
     }
-    return x+solve(x-1);
+    return x*solve(x-1);
 
 }
 int dig(int x)
